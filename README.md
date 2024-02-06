@@ -7,6 +7,7 @@
 * [array Remove](src/arrayRemove.cpp)
 * [generate Prime Numbers](src/generatePrimeNumbers.cpp)
 * [number Sum without array](src/numberSum_withoutarray.cpp)
+* [binary search](src/binarySearch.cpp)
 ---
 ## Project links
 * [Dynamic Data Structures](https://github.com/shantanubindhani/Dynamic_Datastructures/)
