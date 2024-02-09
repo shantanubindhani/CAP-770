@@ -15,10 +15,10 @@ int main(){
                 for(int j = i+1; j < n; ++j){
                     if(nums[j]%nums[i] == 0) nums[j] = 0;
                 }
-               cout<<nums[i];
+               cout<<nums[i]<<", ";
             }
-            else cout<<" - ";
-            cout<<" ";
+    //        else cout<<",";
+            //cout<<" ";
     }
     cout<<endl;
     return 0;
