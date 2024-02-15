@@ -2,7 +2,7 @@
 ### A Repo containing some cpp implementations of DSA and links to other cpp related projects.
 ---
 
-## | Quick Traversal
+## | Quick Links
 * ## Misc
   * [generate Prime Numbers](src/generatePrimeNumbers.cpp)
   * [number Sum without array](src/numberSum_withoutarray.cpp)
@@ -10,6 +10,8 @@
   * [array Insert](src/arrayInsert.cpp)
   * [array Remove](src/arrayRemove.cpp)
 * ## Algorithms
+  * [linear search](src/linearSearch.cpp)
+  * [jump search](src/jumpSearch.cpp)
   * [binary search](src/binarySearch.cpp)
   * [bubble sort](src/bubbleSort.cpp)
   * [selection sort](src/selectionSort.cpp)
