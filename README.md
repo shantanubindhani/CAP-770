@@ -2,8 +2,14 @@
 ### A Repo containing some cpp implementations of DSA and links to other cpp related projects.
 ---
 
-## | Quick Links
-    !#! : To be updated.
+#### | Compilation
+    g++ filename.cpp -o output
+#### | Execution
+    $ ./output demo
+
+
+## | Quick Links 
+#### !#! : To be updated.
 * ## Misc
   * [generate Prime Numbers](src/generatePrimeNumbers.cpp)
   * [number Sum without array](src/numberSum_withoutarray.cpp)
