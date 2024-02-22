@@ -30,8 +30,10 @@ class Stack{
     void extend(int size){
         limit += size;
         T *temp = new T[limit];
-        for(int i = 0; i<=top; ++i){
-            temp[i] = tower[i];
+        if(!isEmpty){
+            for(int i = 0; i<=top; ++i){
+                temp[i] = tower[i];
+            }
         }
         T *mid = temp;
         temp=tower;
@@ -84,7 +86,7 @@ class Stack{
 
 int main(int argc, char* argv[]) {
     string s = "demo";
-    if(argc >=1 && argv[1] == s){
+    if(argc >1 && argv[1] == s){
         cout<<endl;
         Stack<int> stack(3);
         

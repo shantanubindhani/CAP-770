@@ -12,7 +12,7 @@
   * [array Remove](src/arrayRemove.cpp)
   * [linked list](src/linkedList.cpp)
   * [stack](src/stack.cpp)
-  * [queue](src/queue.cpp) !#!
+  * [queue](src/queue.cpp)
 * ## Algorithms
   * [linear search](src/linearSearch.cpp)
   * [jump search](src/jumpSearch.cpp)
