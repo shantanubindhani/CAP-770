@@ -3,22 +3,29 @@
 ---
 
 #### | Compilation
-    g++ filename.cpp -o output
+    g++ demo.cpp -o output
 #### | Execution
-    $ ./output demo
+    $ ./output
 
 
 ## | Quick Links 
 #### !#! : To be updated.
+* ## Demo file
+  * [DEMO](src/demo.cpp)
 * ## Misc
+  * [text formater(color)](src/textFormater.cpp)
   * [generate Prime Numbers](src/generatePrimeNumbers.cpp)
   * [number Sum without array](src/numberSum_withoutarray.cpp)
+  * [balanced Brackets](src/balancedBrackets.cpp)
 * ## Data Structures
   * [array Insert](src/arrayInsert.cpp)
   * [array Remove](src/arrayRemove.cpp)
   * [linked list](src/linkedList.cpp)
-  * [stack](src/stack.cpp)
+  * [stack](src/stack.cpp), [stack using linked-list](src/stackll.cpp)
   * [queue](src/queue.cpp)
+  * [priority queue](src/priorityQueue.cpp) !#!
+  * [binary tree](src/binaryTree.cpp) !#!
+  * [Binary Search Tree](src/bst.cpp) !#!
 * ## Algorithms
   * [linear search](src/linearSearch.cpp)
   * [jump search](src/jumpSearch.cpp)

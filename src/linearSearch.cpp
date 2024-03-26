@@ -1,3 +1,6 @@
+#ifndef LINEARSEARCH_CPP
+#define LINEARSEARCH_CPP
+
 #include<iostream>
 using namespace std;
 
@@ -9,27 +12,23 @@ int linearSearch(T arr[],int size, T target){
     return -1;
 }
 
-int main(int argc, char* argv[]){
-    string s = "demo";
-    if((argv[1] == s)){
-        int n; 
-        cout<<"How many ? : ";cin>>n;
+void linearSearch_demo(){
+    int n; 
+    cout<<"How many ? : ";cin>>n;
 
-        int *nums = new int[n];
-        for(int i = 0; i<n; ++i) {cout<<"["<<i+1<<"]:";cin>>nums[i];}
+    int *nums = new int[n];
+    for(int i = 0; i<n; ++i) {cout<<"["<<i+1<<"]:";cin>>nums[i];}
 
-        cout<<"\n[";
-        for(int i = 0; i<n-1; ++i) cout<<nums[i]<<", ";
-        cout<<nums[n-1]<<"]  size :"<<n<<endl;
-        int target; 
-        cout<<"What to search ? : ";cin>>target;
-        
-        int res = linearSearch<int>(nums, n, target);
-        
-        if(res == -1) cout<<"Not Found."<<endl;
-        else cout<<"Found at : "<<res<<endl;
-    }
-    return 0;
-
+    cout<<"\n[";
+    for(int i = 0; i<n-1; ++i) cout<<nums[i]<<", ";
+    cout<<nums[n-1]<<"]  size :"<<n<<endl;
+    int target; 
+    cout<<"What to search ? : ";cin>>target;
+    
+    int res = linearSearch<int>(nums, n, target);
+    
+    if(res == -1) cout<<"Not Found."<<endl;
+    else cout<<"Found at : "<<res<<endl;
 }
 
+#endif

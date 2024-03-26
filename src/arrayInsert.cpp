@@ -1,12 +1,6 @@
 #include<iostream>
 using namespace std;
 
-void arrayInsert();
-
-int main(){
-    arrayInsert();
-}
-
 void arrayInsert(){
 
     int arr[100];
@@ -14,7 +8,7 @@ void arrayInsert(){
     cout<<"enter no of elements : "; cin >>n;
     if(n<100 && n >=0){
         for(int i = 0; i<n; ++i){
-            cout<<"-> "; cin>>arr[i];
+            printf("[%d]-> ", i+1); cin>>arr[i];
         }
     }
     int data, idx, temp, flag = 0;
@@ -22,11 +16,11 @@ void arrayInsert(){
     cout<<"\nwhere to insert ? : "; cin>>idx;
     if(n<100 && idx<100 && idx >=0){
         cout<<endl<<endl;
-        for(int i = n-1; i>idx; ++i){
+        for(int i = n-1; i>=idx; --i){
             arr[i+1] = arr[i];
         }
         arr[idx] = data;
-
+        ++n;
         for( int i = 0; i<n; ++i) cout<<arr[i]<<", ";
 
     }

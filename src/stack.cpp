@@ -1,11 +1,13 @@
+#ifndef STACK_CPP
+#define STACK_CPP
+
 #include<iostream>
-
-using namespace std;
-
+#include "textFormater.cpp"
 
 template<class T>
 class Stack{
     private:
+        TextFormater tf;
         T *tower;
         int limit;
         int top;
@@ -30,7 +32,7 @@ class Stack{
     void extend(int size){
         limit += size;
         T *temp = new T[limit];
-        if(!isEmpty){
+        if(!isEmpty()){
             for(int i = 0; i<=top; ++i){
                 temp[i] = tower[i];
             }
@@ -47,7 +49,7 @@ class Stack{
             top = top+1;
         }
         else{
-            cout<<"\n [ERROR] : Stack Overflow!"<<endl;
+            tf.printColored("\n [ERROR] : Stack Overflow!\n", ColorCode::RED);
         }
     }
 
@@ -57,7 +59,7 @@ class Stack{
             return tower[top+1];
         }
         else{
-            cout<<"\n [ERROR] : Stack Underflow!"<<endl;
+            tf.printColored("\n [ERROR] : Stack Underflow!\n", ColorCode::RED);
         }
         return 0;
     }
@@ -67,52 +69,22 @@ class Stack{
             return tower[top];
         }
         else{
-            cout<<"\n [NOTICE] : Stack Empty!"<<endl;
+            tf.printColored("\n [NOTICE] : Stack Empty!\n", ColorCode::BLUE);
         }
         return 0;
     }
 
     void display(){
-        cout<<"\n\n=======[ Stack ]======= | "<<top+1<<" out of "<<limit<<"\n\n ";
-        for(int i = 0; i<=top; ++i) cout<<"----"; cout<<"---"<<endl<<" | ";
-        for(int i = 0; i<= top; ++i) cout<<tower[i]<<" : "; cout<<endl<<" ";
-        for(int i = 0; i<=top; ++i) cout<<"----"; cout<<"---"<<endl;
+        printf("\033[1;32m");
+        std::cout<<"\n\n=======[ Stack ]======= | "<<top+1<<" out of "<<limit<<"\n\n ";
+        for(int i = 0; i<=top; ++i) std::cout<<"----"; std::cout<<"---"<<endl<<" | ";
+        for(int i = 0; i<= top; ++i) std::cout<<tower[i]<<" : "; std::cout<<endl<<" ";
+        for(int i = 0; i<=top; ++i) std::cout<<"----"; std::cout<<"---"<<endl;
 
-        cout<<"\n============================="<<endl<<endl;
+        std::cout<<"\n============================="<<endl<<endl;
+        printf("\033[0m");
     }
 
 };
 
-
-int main(int argc, char* argv[]) {
-    string s = "demo";
-    if(argc >1 && argv[1] == s){
-        cout<<endl;
-        Stack<int> stack(3);
-        
-        // Insert elements
-        if(stack.isFull()) cout<<"The Stack is full."<<endl;
-        else if(stack.isEmpty()) cout<<"The Stack is Empty."<<endl;
-        else cout<<"The Stack has elements."<<endl;
-
-        stack.push(5); // Inserting to the stack
-        stack.push(10);
-        stack.display();
-
-        stack.push(3);
-        stack.push(1);
-        stack.display();
-
-        stack.extend(10);
-        cout<<"Peeked and found : "<<stack.peek();
-        stack.display(); 
-
-        // Delete elements
-        cout<<"Popped the element : "<<stack.pop()<<endl;
-        cout<<"Popped the element : "<<stack.pop()<<endl;
-        stack.display();
-        
-
-    }
-    return 0;
-}
+#endif

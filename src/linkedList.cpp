@@ -1,4 +1,9 @@
+#ifndef LINKEDLIST_CPP
+#define LINKEDLIST_CPP
+
 #include <iostream>
+#include "textFormater.cpp"
+
 using namespace std;
 
 template<class T>
@@ -18,6 +23,7 @@ class LinkedList{
 private:
     int limit;
     int listSize;
+    TextFormater tf;
     Node<T> *head;
 
 public:
@@ -26,17 +32,43 @@ public:
         listSize = 0;
         head = nullptr;
     }
+    LinkedList(int limit){
+        this.limit = limit;
+        listSize = 0;
+        head = nullptr;
+    }
     void extend(int bySize = 10){ limit += bySize; }
 
     bool isFull(){ return (listSize == limit); }
+    bool isEmpty(){ return (head == nullptr); }
 
     int capacity(){ return limit; }
 
     int size(){ return listSize; }
 
+    T get(int index = 0){
+        T data;
+        if(head != nullptr){
+            
+            if(index>=0 && index <= listSize){
+                Node<T> *current = head;
+                while(index){
+                    current = current->nextNode;
+                    --index;
+                }
+                data = current->data;
+            }
+            else{
+                tf.printColored(" [ERROR] : invalid index!.", ColorCode::RED);
+            }
+        }
+        return data;
+    }
+
     void insertAtEnd(T data){
         if (!isFull()) {
             Node<T> *node = new Node<T>(data);
+            if(!node){return;} //TODO
             if (head == nullptr)
                 head = node;
             else {
@@ -83,20 +115,26 @@ public:
         }
     }
 
-    void deleteAtStart() {
+    T deleteAtStart() {
+        T data;
         if (head != nullptr) {
             Node<T> *temp = head;
+            data = head->data; 
             head = head->nextNode;
             delete temp;
             --listSize;
         } else {
             std::cout << "List is empty." << std::endl;
         }
+        return data;
+
     }
 
-    void deleteAtEnd() {
+    T deleteAtEnd() {
+        T data;
         if (head != nullptr) {
             if (head->nextNode == nullptr) {
+                data = head->data;
                 delete head;
                 head = nullptr;
             } else {
@@ -104,6 +142,7 @@ public:
                 while (current->nextNode->nextNode != nullptr) {
                     current = current->nextNode;
                 }
+                data = current->nextNode->data;
                 delete current->nextNode;
                 current->nextNode = nullptr;
             }
@@ -111,12 +150,14 @@ public:
         } else {
             std::cout << "List is empty." << std::endl;
         }
+        return data;
     }
 
-    void deleteAtIndex(int index) {
+    T deleteAtIndex(int index) {
+        T data;
         if (index >= 0 && index < listSize) {
             if (index == 0) {
-                deleteAtStart();
+                return deleteAtStart();
             } else {
                 Node<T> *current = head;
                 for (int i = 0; i < index - 1; ++i) {
@@ -124,16 +165,22 @@ public:
                 }
                 Node<T> *temp = current->nextNode;
                 current->nextNode = current->nextNode->nextNode;
+                data = temp->data;
                 delete temp;
                 --listSize;
+                return data;
             }
         } else {
             std::cout << "Invalid index." << std::endl;
         }
+        return data;
     }
 
-    void display(){
-            cout<<"\n\n=======[ Linked List ]======= | "<<listSize<<" out of "<<limit<<"\n\n    ";
+    void display(string title = ""){
+
+            if(title == "") title = "Linked List";
+            printf("\033[1;32m");
+            cout<<"\n\n=======[ "<<title<<" ]======= | "<<listSize<<" out of "<<limit<<"\n\n    ";
             Node<T> *current = head;
             while(current!= nullptr){
                 cout<<"["<<current->data<<"]->";
@@ -142,36 +189,9 @@ public:
             cout<<"END"<<endl;
 
             cout<<"\n============================="<<endl<<endl;
+            printf("\033[0m");
         }
 
 };
 
-int main(int argc, char* argv[]) {
-    cout<<argv[1];
-    string s = "demo";
-    if(argv[1] == s){
-        LinkedList<int> list;
-        
-        // Insert elements
-        list.insertAtEnd(5); // Inserting at the end
-        list.insertAtEnd(10);
-        list.display();
-
-        list.insertAtStart(3);// Inserting at the beginning
-        list.insertAtStart(1);
-        list.display();
-
-        list.extend(40);
-        list.insertAtIndex(7, 2);// Inserting at index 2
-        list.display(); 
-
-        // Delete elements
-        list.deleteAtStart();   // Deleting from the beginning
-        list.deleteAtEnd();     // Deleting from the end
-        list.deleteAtIndex(1);  // Deleting at index 1
-
-        list.display();
-    }
-    return 0;
-}
-
+#endif

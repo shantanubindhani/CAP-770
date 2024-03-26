@@ -1,3 +1,6 @@
+#ifndef QUEUE_CPP
+#define QUEUE_CPP
+
 #include<iostream>
 
 using namespace std;
@@ -122,15 +125,4 @@ void runDemo(T arr[]){
 }
 
 
-int main(int argc, char* argv[]) {
-    string s = "demo";
-    if(argc >1 && argv[1] == s){
-        int intArr[] = {34, 89, 74, 34};
-        runDemo<int>(intArr);
-        char charArr[] = {'h', 'e', 'l', 'o'};
-        runDemo<char>(charArr);
-        string strArr[] = {"hey", "there", "BLANK", "whatsup"};
-        runDemo<string>(strArr);
-    }
-    return 0;
-}
+#endif

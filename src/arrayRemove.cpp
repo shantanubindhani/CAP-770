@@ -1,12 +1,6 @@
 #include<iostream>
 using namespace std;
 
-void arrayRemove();
-
-int main(){
-    arrayRemove();
-}
-
 void arrayRemove(){
 
     int arr[100];
@@ -14,7 +8,7 @@ void arrayRemove(){
     cout<<"enter no of elements : "; cin >>n;
     if(n<100 && n >=0){
         for(int i = 0; i<n; ++i){
-            cout<<"-> "; cin>>arr[i];
+            printf("[%d]-> ",i+1); cin>>arr[i];
         }
     }
     int idx;
